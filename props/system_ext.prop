@@ -1,2 +1,5 @@
+# Dalvik
+dalvik.vm.dex2oat64.enabled=true
+
 # Radio
 telephony.active_modems.max_count=2
