@@ -66,6 +66,9 @@ SOONG_CONFIG_dolby_vision_enabled := true
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 
+# Graphics
+USE_OPENGL_RENDERER := true
+
 # Hardware
 BOARD_USES_QCOM_HARDWARE := true
 
