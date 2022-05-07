@@ -72,6 +72,9 @@ USE_OPENGL_RENDERER := true
 # Hardware
 BOARD_USES_QCOM_HARDWARE := true
 
+# HWUI
+HWUI_COMPILE_FOR_PERF := true
+
 # HIDL
 DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
