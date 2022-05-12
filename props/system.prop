@@ -13,6 +13,9 @@ persist.vendor.camera.ois.video=1
 # Disable vsync for cpu rendered apps
 debug.cpurend.vsync=false
 
+# HWUI
+debug.hwui.skia_atrace_enabled=false
+
 # QTI
 ro.vendor.qti.va_aosp.support=1
 
