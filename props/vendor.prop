@@ -153,6 +153,7 @@ debug.sf.use_phase_offsets_as_durations=1
 debug.sf.defer_refresh_rate_when_off=1
 persist.sys.sf.color_mode=0
 persist.sys.sf.color_saturation=1.0
+debug.graphics.game_default_frame_rate.disabled=true
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
 ro.opengles.version=196610
