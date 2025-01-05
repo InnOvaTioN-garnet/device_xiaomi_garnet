@@ -18,56 +18,124 @@
 
 import os
 import sys
+import argparse
 from hashlib import sha1
-
-device='garnet'
-vendor='xiaomi'
-
-with open('proprietary-files.txt', 'r') as f:
-    lines = f.read().splitlines()
-vendorPath = '../../../vendor/' + vendor + '/' + device + '/proprietary'
-needSHA1 = False
+from typing import List, Tuple
 
 
-def cleanup():
-    for index, line in enumerate(lines):
-        # Skip empty or commented lines
-        if len(line) == 0 or line[0] == '#' or '|' not in line:
-            continue
+class SHA1Updater:
+    def __init__(
+        self, device: str, vendor: str, proprietary_file: str = "proprietary-files.txt"
+    ):
+        self.device = device
+        self.vendor = vendor
+        self.proprietary_file = proprietary_file
+        self.vendor_path = os.path.join(
+            "..", "..", "..", "vendor", vendor, device, "proprietary"
+        )
+        self.lines: List[str] = []
 
-        # Drop SHA1 hash, if existing
-        lines[index] = line.split('|')[0]
+    def read_proprietary_files(self) -> None:
+        """Read the proprietary files list."""
+        try:
+            with open(self.proprietary_file, "r") as f:
+                self.lines = f.read().splitlines()
+        except FileNotFoundError:
+            print(f"Error: {self.proprietary_file} not found")
+            sys.exit(1)
 
+    def write_proprietary_files(self) -> None:
+        """Write back the modified proprietary files list."""
+        try:
+            with open(self.proprietary_file, "w") as f:
+                f.write("\n".join(self.lines) + "\n")
+        except IOError as e:
+            print(f"Error writing to {self.proprietary_file}: {e}")
+            sys.exit(1)
 
-def update():
-    for index, line in enumerate(lines):
+    def process_line(self, line: str, need_sha1: bool) -> Tuple[str, bool]:
+        """Process a single line and update SHA1 if needed."""
         # Skip empty lines
-        if len(line) == 0:
-            continue
+        if not line:
+            return line, need_sha1
 
         # Check if we need to set SHA1 hash for the next files
-        if line[0] == '#':
-            needSHA1 = (' - from' in line)
-            continue
+        if line[0] == "#":
+            return line, " - from" in line
 
-        if needSHA1:
-            # Remove existing SHA1 hash
-            line = line.split('|')[0]
+        if not need_sha1:
+            return line, need_sha1
 
-            filePath = line.split(';')[0].split(':')[-1]
-            if filePath[0] == '-':
-                filePath = filePath[1:]
+        # Remove existing SHA1 hash if present
+        line = line.split("|")[0]
 
-            with open(os.path.join(vendorPath, filePath), 'rb') as f:
-                hash = sha1(f.read()).hexdigest()
+        # Get the file path
+        file_path = line.split(";")[0].split(":")[-1]
+        if file_path[0] == "-":
+            file_path = file_path[1:]
 
-            lines[index] = '%s|%s' % (line, hash)
+        try:
+            with open(os.path.join(self.vendor_path, file_path), "rb") as f:
+                hash_value = sha1(f.read()).hexdigest()
+            return f"{line}|{hash_value}", need_sha1
+        except FileNotFoundError:
+            print(f"Warning: File not found: {file_path}")
+            return line, need_sha1
+        except IOError as e:
+            print(f"Warning: Error reading {file_path}: {e}")
+            return line, need_sha1
+
+    def cleanup(self) -> None:
+        """Remove all SHA1 hashes from the file."""
+        for index, line in enumerate(self.lines):
+            # Skip empty or commented lines
+            if not line or line[0] == "#" or "|" not in line:
+                continue
+            # Drop SHA1 hash
+            self.lines[index] = line.split("|")[0]
+
+    def update(self) -> None:
+        """Update SHA1 hashes for all files."""
+        need_sha1 = False
+        for index, line in enumerate(self.lines):
+            self.lines[index], need_sha1 = self.process_line(line, need_sha1)
 
 
-if len(sys.argv) == 2 and sys.argv[1] == '-c':
-    cleanup()
-else:
-    update()
+def parse_arguments() -> argparse.Namespace:
+    """Parse command line arguments."""
+    parser = argparse.ArgumentParser(
+        description="Update or clean SHA1 hashes in proprietary-files.txt"
+    )
+    parser.add_argument(
+        "-c", "--cleanup", action="store_true", help="Remove all SHA1 hashes"
+    )
+    parser.add_argument(
+        "--device", default="garnet", help="Device name (default: garnet)"
+    )
+    parser.add_argument(
+        "--vendor", default="xiaomi", help="Vendor name (default: xiaomi)"
+    )
+    parser.add_argument(
+        "--file",
+        default="proprietary-files.txt",
+        help="Proprietary files list (default: proprietary-files.txt)",
+    )
+    return parser.parse_args()
 
-with open('proprietary-files.txt', 'w') as file:
-    file.write('\n'.join(lines) + '\n')
+
+def main():
+    args = parse_arguments()
+
+    updater = SHA1Updater(args.device, args.vendor, args.file)
+    updater.read_proprietary_files()
+
+    if args.cleanup:
+        updater.cleanup()
+    else:
+        updater.update()
+
+    updater.write_proprietary_files()
+
+
+if __name__ == "__main__":
+    main()
