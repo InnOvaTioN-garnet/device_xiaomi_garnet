@@ -179,6 +179,12 @@ debug.hwui.renderer=skiagl
 debug.renderengine.backend=skiaglthreaded
 renderthread.skia.reduceopstasksplitting=true
 
+# Haptic
+sys.haptic.motor=linear
+sys.haptic.infinitelevel=true
+sys.haptic.down=5,2
+sys.haptic.tap.normal=3,2
+
 # IMS
 persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
