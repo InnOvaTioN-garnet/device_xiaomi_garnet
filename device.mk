@@ -44,8 +44,8 @@ SOONG_CONFIG_android_hardware_audio += \
 SOONG_CONFIG_android_hardware_audio_run_64bit := true
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio@7.0-impl \
-    android.hardware.audio.effect@7.0-impl \
+    android.hardware.audio@8.0-impl \
+    android.hardware.audio.effect@8.0-impl \
     android.hardware.audio.service
 
 PRODUCT_PACKAGES += \
