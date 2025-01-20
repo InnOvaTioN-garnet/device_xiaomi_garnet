@@ -37,6 +37,10 @@ PRODUCT_PACKAGES += \
 BOARD_SHIPPING_API_LEVEL := 34
 PRODUCT_SHIPPING_API_LEVEL := 34
 
+# ART RUNTIME GC
+PRODUCT_PACKAGES += \
+    art-runtime-gc
+
 # Audio
 SOONG_CONFIG_NAMESPACES += android_hardware_audio
 SOONG_CONFIG_android_hardware_audio += \
