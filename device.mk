@@ -202,6 +202,9 @@ PRODUCT_PACKAGES += \
     libinput_shim \
     libgui_shim
 
+# Dalvik heap
+$(call inherit-product, frameworks/native/build/phone-xhdpi-8192-dalvik-heap.mk)
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.4.vendor \
