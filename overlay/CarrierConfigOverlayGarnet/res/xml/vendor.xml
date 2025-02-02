@@ -9,9 +9,11 @@
     -->
     <carrier_config>
         <boolean name="apn_expand_bool" value="true" />
+        <!-- PA: Disable World Mode to clean up network modes -->
         <boolean name="world_phone_bool" value="false" />
         <boolean name="allow_adding_apns_bool" value="true" />
         <boolean name="hide_preferred_network_type_bool" value="false" />
+        <!-- PA: Disable CDMA Choices to clean up settings -->
         <boolean name="show_cdma_choices_bool" value="false" />
         <boolean name="allow_video_call_in_low_battery" value="true" />
         <boolean name="config_enable_display_14digit_imei" value="false" />
@@ -50,11 +52,14 @@
         <string name="gps.nfw_proxy_apps">com.example.android.locationattribution</string>
         <boolean name="carrier_cross_sim_ims_available_bool" value="true" />
         <boolean name="carrier_b2c_enriched_calling_supported_bool" value="false" />
+        <boolean name="carrier_call_progress_notification" value="true" />
+        <!-- PA: Allow VoLTE and WFC by default -->
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
         <!-- PA: Enable LTE+ icon by default -->
         <boolean name="hide_lte_plus_data_icon_bool" value="false"/>
         <!-- PA: Set LTE+ threshold bandwidth to 0 by default -->
         <int name="lte_plus_threshold_bandwidth_khz_int" value="0"/>
-        <boolean name="carrier_call_progress_notification" value="true" />
     </carrier_config>
     <carrier_config mcc="001" mnc="01">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10020,6 +10025,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="873">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10027,6 +10033,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="872">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10034,6 +10041,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="871">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10041,6 +10049,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="870">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10048,6 +10057,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="869">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10055,6 +10065,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="868">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10062,6 +10073,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="867">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10069,6 +10081,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="866">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10076,6 +10089,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="865">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10083,6 +10097,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="864">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10090,6 +10105,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="863">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10097,6 +10113,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="862">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10104,6 +10121,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="861">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10111,6 +10129,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="860">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10118,6 +10137,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="859">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10125,6 +10145,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="858">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10132,6 +10153,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="857">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10139,6 +10161,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="856">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10146,6 +10169,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="855">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10153,6 +10177,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="854">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10160,6 +10185,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="840">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -10167,6 +10193,7 @@
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
         <boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="405" mnc="56">
         <boolean name="carrier_volte_available_bool" value="true" />
